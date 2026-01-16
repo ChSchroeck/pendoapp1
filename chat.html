@@ -47,6 +47,7 @@
     <!-- Agent Analytics  -->
     <script>
         // User Prompt
+        console.log("User prompting")
         window.pendo.trackAgent('prompt', {
             agentId: 'kJoqW4oNiuMt1EMhHlqXiJpG0I8',
             conversationId: 'conv_001',
@@ -58,27 +59,33 @@
             fileUploaded: false
         });
         // Agent Response
-        window.pendo.trackAgent('agent_response', {
-            agentId: 'kJoqW4oNiuMt1EMhHlqXiJpG0I8',
-            conversationId: 'conv_001',
-            messageId: 'msg_002',
-            content: 'To reset your password, go to Settings > Account > Reset Password...',
-            modelUsed: 'internal-1',
-            suggestedPrompt: false,
-            toolsUsed: ['knowledge_base'],
-            fileUploaded: false
-        });
-        //User Reacts
-        window.pendo.trackAgent('user_reaction', {
-            agentId: 'kJoqW4oNiuMt1EMhHlqXiJpG0I8',
-            conversationId: 'conv_001',
-            messageId: 'msg_002', // The reaction is tied to the same messageId as the response
-            content: 'positive', // Can be "positive", "negative", or "mixed"
-            modelUsed: 'internal-1',
-            suggestedPrompt: false,
-            toolsUsed: ['knowledge_base'],
-            fileUploaded: false
-        });
+        setTimeout(() => {
+            console.log("Agent responding");
+            window.pendo.trackAgent('agent_response', {
+                agentId: 'kJoqW4oNiuMt1EMhHlqXiJpG0I8',
+                conversationId: 'conv_001',
+                messageId: 'msg_002',
+                content: 'To reset your password, go to Settings > Account > Reset Password...',
+                modelUsed: 'internal-1',
+                suggestedPrompt: false,
+                toolsUsed: ['knowledge_base'],
+                fileUploaded: false
+            });
+            setTimeout(() => {
+                //User Reacts
+                console.log("User reacting");
+                window.pendo.trackAgent('user_reaction', {
+                    agentId: 'kJoqW4oNiuMt1EMhHlqXiJpG0I8',
+                    conversationId: 'conv_001',
+                    messageId: 'msg_002', // The reaction is tied to the same messageId as the response
+                    content: 'positive', // Can be "positive", "negative", or "mixed"
+                    modelUsed: 'internal-1',
+                    suggestedPrompt: false,
+                    toolsUsed: ['knowledge_base'],
+                    fileUploaded: false
+                });
+            }, 10000);
+        }, 15000);
     </script>
 </body>
 
