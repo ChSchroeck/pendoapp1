@@ -84,20 +84,22 @@
                     toolsUsed: ['knowledge_base'],
                     fileUploaded: false
                 });
+                setTimeout(() => {
+                    // User Prompt
+                    console.log("User rage promting")
+                    window.pendo.trackAgent('prompt', {
+                        agentId: 'kJoqW4oNiuMt1EMhHlqXiJpG0I8',
+                        conversationId: 'conv_003',
+                        messageId: 'msg_001',
+                        content: 'I\'VE ALREAD TRIED THIS HUNDRED TIMES!!!',
+                        modelUsed: 'internal-1',
+                        suggestedPrompt: false,
+                        toolsUsed: [],
+                        fileUploaded: false
+                    });
+                }, 5000);
             }, 10000);
         }, 15000);
-         // User Prompt
-        console.log("User prompting")
-        window.pendo.trackAgent('prompt', {
-            agentId: 'kJoqW4oNiuMt1EMhHlqXiJpG0I8',
-            conversationId: 'conv_003',
-            messageId: 'msg_001',
-            content: 'I\'VE ALREAD TRIED THIS HUNDRED TIMES!!!',
-            modelUsed: 'internal-1',
-            suggestedPrompt: false,
-            toolsUsed: [],
-            fileUploaded: false
-        });
     </script>
 </body>
 
