@@ -44,11 +44,13 @@
 </header>
 
 <body>
+    <p id="output">Initial message...</p>
     <!-- Agent Analytics  -->
     <script>
         const CONV_ID = "conv_004"
         // User Prompt
         console.log("User prompting")
+        document.getElementById('output').textContent += '\nUser prompting';
         window.pendo.trackAgent('prompt', {
             agentId: 'kJoqW4oNiuMt1EMhHlqXiJpG0I8',
             conversationId: CONV_ID,
@@ -62,6 +64,7 @@
         // Agent Response
         setTimeout(() => {
             console.log("Agent responding");
+            document.getElementById('output').textContent += '\nAgent responding';
             window.pendo.trackAgent('agent_response', {
                 agentId: 'kJoqW4oNiuMt1EMhHlqXiJpG0I8',
                 conversationId: CONV_ID,
@@ -75,6 +78,7 @@
             setTimeout(() => {
                 //User Reacts
                 console.log("User reacting");
+                document.getElementById('output').textContent += '\nUser reacting';
                 window.pendo.trackAgent('user_reaction', {
                     agentId: 'kJoqW4oNiuMt1EMhHlqXiJpG0I8',
                     conversationId: CONV_ID,
@@ -88,6 +92,7 @@
                 setTimeout(() => {
                     // User Prompt
                     console.log("User rage promting")
+                    document.getElementById('output').textContent += '\nUser raging';
                     window.pendo.trackAgent('prompt', {
                         agentId: 'kJoqW4oNiuMt1EMhHlqXiJpG0I8',
                         conversationId: CONV_ID,
